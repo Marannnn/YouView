@@ -1,0 +1,17 @@
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewUI\bin\Debug\net8.0-windows\YouViewUI.exe
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewUI\bin\Debug\net8.0-windows\YouViewUI.deps.json
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewUI\bin\Debug\net8.0-windows\YouViewUI.runtimeconfig.json
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewUI\bin\Debug\net8.0-windows\YouViewUI.dll
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewUI\bin\Debug\net8.0-windows\YouViewUI.pdb
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewUI\obj\Debug\net8.0-windows\YouViewUI.Form1.resources
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewUI\obj\Debug\net8.0-windows\YouViewUI.csproj.GenerateResource.cache
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewUI\obj\Debug\net8.0-windows\YouViewUI.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewUI\obj\Debug\net8.0-windows\YouViewUI.AssemblyInfoInputs.cache
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewUI\obj\Debug\net8.0-windows\YouViewUI.AssemblyInfo.cs
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewUI\obj\Debug\net8.0-windows\YouViewUI.csproj.CoreCompileInputs.cache
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewUI\obj\Debug\net8.0-windows\YouViewUI.sourcelink.json
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewUI\obj\Debug\net8.0-windows\YouViewUI.dll
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewUI\obj\Debug\net8.0-windows\refint\YouViewUI.dll
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewUI\obj\Debug\net8.0-windows\YouViewUI.pdb
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewUI\obj\Debug\net8.0-windows\YouViewUI.genruntimeconfig.cache
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewUI\obj\Debug\net8.0-windows\ref\YouViewUI.dll

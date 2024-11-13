@@ -1,0 +1,15 @@
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewAPI\bin\Debug\net8.0\YouViewAPI.exe
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewAPI\bin\Debug\net8.0\YouViewAPI.deps.json
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewAPI\bin\Debug\net8.0\YouViewAPI.runtimeconfig.json
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewAPI\bin\Debug\net8.0\YouViewAPI.dll
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewAPI\bin\Debug\net8.0\YouViewAPI.pdb
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewAPI\obj\Debug\net8.0\YouViewAPI.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewAPI\obj\Debug\net8.0\YouViewAPI.AssemblyInfoInputs.cache
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewAPI\obj\Debug\net8.0\YouViewAPI.AssemblyInfo.cs
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewAPI\obj\Debug\net8.0\YouViewAPI.csproj.CoreCompileInputs.cache
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewAPI\obj\Debug\net8.0\YouViewAPI.sourcelink.json
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewAPI\obj\Debug\net8.0\YouViewAPI.dll
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewAPI\obj\Debug\net8.0\refint\YouViewAPI.dll
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewAPI\obj\Debug\net8.0\YouViewAPI.pdb
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewAPI\obj\Debug\net8.0\YouViewAPI.genruntimeconfig.cache
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewAPI\obj\Debug\net8.0\ref\YouViewAPI.dll

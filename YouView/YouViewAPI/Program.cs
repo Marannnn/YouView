@@ -9,14 +9,24 @@ namespace YouViewAPI    //#Duvod proc se pouziva "async" je protoze kod musi poc
     {
         static async Task Main(string[] args) // async protoze metoda kterou volam je asynac
         {
-            await GetYoutubeData("UCtu2BCnJoFGRBOuIh570QWw"); //Počká na odpověď
+            Console.WriteLine("Napište ID kanálu: ");
+            string channelId = Console.ReadLine();
+
+            if (channelId != null) //jestli uživatel zadal channelId ( jestli tam něco je )
+            {
+            await GetYoutubeData(channelId); //Počká na odpověď
+            }
+            else
+            {
+                Console.WriteLine("Nezadali jste channelId");
+            }
         }
 
         static public async Task GetYoutubeData(string CHANNEL_ID)
         {
             using (HttpClient client = new HttpClient()) //používáním: http clientu
             {
-                string API_KEY = "HERE YOUR API KEY";
+                string API_KEY = "//HERE YOUR API KEY//"; 
                 DateTime published_after_date = DateTime.Now.AddDays(-1); //aktuální čas posunutý o den vzůdu(včera)
                 string PUBLISHED_AFTER = published_after_date.ToString("yyyy-MM-ddTHH:mm:ssZ"); //přemění ho na string formát
                 string URL = $"https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId={CHANNEL_ID}&maxResults=5&order=date&publishedAfter={PUBLISHED_AFTER}&type=video&key={API_KEY}"; //url z YouTube Data v3 api dokumentace (experiment)

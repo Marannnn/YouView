@@ -5,21 +5,122 @@ using System.Threading.Tasks;
 
 namespace YouViewAPI    //#Duvod proc se pouziva "async" je protoze kod musi pockat na response od api. kdyby to tam nebylo, kod pobezi dal aniz by cekal na odpoved a tim padem by se nic nespustilo.
 {
+    //TODO: SAVE DATA FROM channelList TO A JSON FILE, ADD OPTION TO LOAD THE DATA, ADD OPTION TO SAVE THE DATA, ADD OPTION TO SHOW QUOTA   
     internal class Program
     {
         static async Task Main(string[] args) // async protoze metoda kterou volam je asynac
         {
-            Console.WriteLine("Napište ID kanálu: ");
-            string channelId = Console.ReadLine();
+            List<Channel> channelList = new List<Channel>();
+            bool repeat = true;
+            Console.WriteLine("This app was made by Martin 'Maran' Hrubeš \n");
+            while (repeat == true)
+            {
+                Console.WriteLine("What do you want to do?");
+                Console.WriteLine("1)Add channel, 2)Delete channel, 3) List all added channels with their tags, 4) SEE ALL NEW VIDEOS \n");
+                string operation = Console.ReadLine();
 
-            if (channelId != null) //jestli uživatel zadal channelId ( jestli tam něco je )
-            {
-            await GetYoutubeData(channelId); //Počká na odpověď
+                switch (operation) 
+                {
+                    case "1":
+                        Console.WriteLine("Channel ID: ");
+                        string channelId = Console.ReadLine();
+
+                        if (channelId != null) //jestli uživatel zadal channelId ( jestli tam něco je )
+                        {
+                            Console.WriteLine("Add channel title(can be custom, only you will see this, wont affect the program): ");
+                            string title = Console.ReadLine();
+                            if (title != null)
+                            {
+                                Console.WriteLine("Add tag: ");
+                                string tag = Console.ReadLine();
+                                if (tag != null)
+                                {
+                                    Channel channel = new Channel();
+                                    channel.Title = title;
+                                    channel.Id = channelId;
+                                    channel.tag = tag;
+                                    channelList.Add(channel);
+                                    Console.WriteLine("Channel succesfuly added \n");
+                                    //await GetYoutubeData(channelId); //Spustí metodu a počká na odpověď
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Put a tag!");
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("Put a channel title!");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("You didn't put in channel id");
+                        }
+
+                        Console.WriteLine("Do you want to continue? Y/N");
+                        if (Console.ReadLine() == "Y")
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            repeat = false;
+                            
+                        }
+                        break; //Přidat kanál
+
+                    case "2":
+                        Console.WriteLine("What channel do you want to delete?(channel title): ");
+                        string channelTitle = Console.ReadLine();
+                        if (channelTitle != null) //pokud uzivatel neco napsal
+                        {
+                            var desiredChannel = channelList.Find(t => t.Title == channelTitle);
+                            if (desiredChannel != null) //pokud channel existuje a program ho nasel
+                            {
+                                channelList.Remove(desiredChannel); //smazu kanal z listu ktery list nasel pres "Find"
+                                Console.WriteLine("Channel succesfuly removed \n");
+                                Console.WriteLine("Do you want to continue? Y/N");
+                                if (Console.ReadLine() == "Y")
+                                {
+                                    continue;
+                                }
+                                else
+                                {
+                                    repeat = false;
+
+                                }
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Non existent channel title");
+                            }    
+                        }
+                        break; //Smazat kanál
+                    case "3": //Zobrazit všechny kanály
+                        foreach (var channel in channelList)
+                        {
+                            Console.WriteLine($"{channel.Title} \n  {channel.tag} \n    {channel.Id} \n -------------------------------------");
+                        }
+                        break;
+                    case "4": //Zobrazit všechna videa
+                        for(int i = 0;i < channelList.Count;i++) 
+                        {
+                            await GetYoutubeData(channelList[i].Id);
+                            Console.WriteLine(channelList[i].tag);
+                            Console.WriteLine("------------------------------------- \n");
+                        }
+                        break;
+                    default:
+                        Console.WriteLine("Please select between 1 and 4");
+                        break;
+                }
+
+
             }
-            else
-            {
-                Console.WriteLine("Nezadali jste channelId");
-            }
+            
+
         }
 
         static public async Task GetYoutubeData(string CHANNEL_ID)
@@ -35,7 +136,7 @@ namespace YouViewAPI    //#Duvod proc se pouziva "async" je protoze kod musi poc
 
                 if (response.IsSuccessStatusCode) //pokud byl úspěšný (vrati kod 2xx)
                 {
-                    Console.WriteLine($"Přijal jsem úspěšně response: {response}"); //vypíše response
+                    //Console.WriteLine($"Přijal jsem úspěšně response: {response}"); //vypíše response
                     string jsonResponse = await response.Content.ReadAsStringAsync();// response dám do json
 
                     Load(jsonResponse);
@@ -44,6 +145,7 @@ namespace YouViewAPI    //#Duvod proc se pouziva "async" je protoze kod musi poc
                 else //pokud nebyl úspěšný
                 {
                     Console.WriteLine("Chyba při získávání dat z YouTube");
+                    Console.WriteLine(response);
                 }
             }
         }
@@ -53,6 +155,7 @@ namespace YouViewAPI    //#Duvod proc se pouziva "async" je protoze kod musi poc
             VideoConent content = JsonSerializer.Deserialize<VideoConent>(jsonResponse); //deserializace s použitím classy VideoContent
             Console.WriteLine(content.items[0].snippet.title); //vypíšu jméno videa
             Console.WriteLine(content.items[0].snippet.channelTitle); //vypíšu jméno kanálu
+            
         }
 
         class VideoConent //celkový obsah json souboru (nahoře v hierarchii)
@@ -70,6 +173,13 @@ namespace YouViewAPI    //#Duvod proc se pouziva "async" je protoze kod musi poc
             //[JsonPropertyName("title")]
             public string title {  get; set; } //json soubor sem přiřadí title
             public string channelTitle { get; set; } //json soubor sem přiřadí channelTitle
+        }
+
+        public class Channel
+        {
+            public string Title { get; set; }
+            public string Id { get; set; }
+            public string tag { get; set; }
         }
     }
 }

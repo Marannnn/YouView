@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Documents\\Programming\\cSharp\\YouView\\YouView\\YouView\\YouViewAPI\\YouViewAPI.csproj",
-      "projectName": "YouViewAPI",
-      "projectPath": "E:\\Documents\\Programming\\cSharp\\YouView\\YouView\\YouView\\YouViewAPI\\YouViewAPI.csproj",
+      "projectUniqueName": "E:\\Documents\\Programming\\cSharp\\YouView\\YouView\\YouView\\YouViewAPI\\YouViewCLI.csproj",
+      "projectName": "YouViewCLI",
+      "projectPath": "E:\\Documents\\Programming\\cSharp\\YouView\\YouView\\YouView\\YouViewAPI\\YouViewCLI.csproj",
       "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
       "outputPath": "E:\\Documents\\Programming\\cSharp\\YouView\\YouView\\YouView\\YouViewAPI\\obj\\",
       "projectStyle": "PackageReference",

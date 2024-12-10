@@ -5,12 +5,16 @@ using System.Threading.Tasks;
 
 namespace YouViewAPI    //#Duvod proc se pouziva "async" je protoze kod musi pockat na response od api. kdyby to tam nebylo, kod pobezi dal aniz by cekal na odpoved a tim padem by se nic nespustilo.
 {
-    //TODO: SAVE DATA FROM channelList TO A JSON FILE, ADD OPTION TO LOAD THE DATA, ADD OPTION TO SAVE THE DATA, ADD OPTION TO SHOW QUOTA   
+    //TODO: SHOW ONLY TAG VIDEOS, LOAD CHANNELS,SAVE SHOWN VIDEOS to save quota, ADD OPTION TO SHOW QUOTA
+    //CURR: SAVE CHANNELS TO JSON
     internal class Program
     {
+        static List<Channel> channelList = new List<Channel>();
         static async Task Main(string[] args) // async protoze metoda kterou volam je asynac
         {
-            List<Channel> channelList = new List<Channel>();
+
+            LoadChanels();
+
             bool repeat = true;
             Console.WriteLine("This app was made by Martin 'Maran' Hrubeš \n");
             while (repeat == true)
@@ -27,7 +31,7 @@ namespace YouViewAPI    //#Duvod proc se pouziva "async" je protoze kod musi poc
 
                         if (channelId != null) //jestli uživatel zadal channelId ( jestli tam něco je )
                         {
-                            Console.WriteLine("Add channel title(can be custom, only you will see this, wont affect the program): ");
+                            Console.WriteLine("Add channel title(for managing data in file, wont affect the program): ");
                             string title = Console.ReadLine();
                             if (title != null)
                             {
@@ -38,10 +42,13 @@ namespace YouViewAPI    //#Duvod proc se pouziva "async" je protoze kod musi poc
                                     Channel channel = new Channel();
                                     channel.Title = title;
                                     channel.Id = channelId;
-                                    channel.tag = tag;
+                                    channel.Tag = tag;
                                     channelList.Add(channel);
-                                    Console.WriteLine("Channel succesfuly added \n");
-                                    //await GetYoutubeData(channelId); //Spustí metodu a počká na odpověď
+
+                                    string jsonString = JsonSerializer.Serialize(channel);
+                                    string filePath = Path.Combine(Environment.CurrentDirectory, "data.json");
+                                    File.AppendAllText(filePath, jsonString + Environment.NewLine);
+                                    Console.WriteLine("Channel succesfuly added and saved into json file \n");
                                 }
                                 else
                                 {
@@ -101,14 +108,14 @@ namespace YouViewAPI    //#Duvod proc se pouziva "async" je protoze kod musi poc
                     case "3": //Zobrazit všechny kanály
                         foreach (var channel in channelList)
                         {
-                            Console.WriteLine($"{channel.Title} \n  {channel.tag} \n    {channel.Id} \n -------------------------------------");
+                            Console.WriteLine($"{channel.Title} \n  {channel.Tag} \n    {channel.Id} \n -------------------------------------");
                         }
                         break;
                     case "4": //Zobrazit všechna videa
                         for(int i = 0;i < channelList.Count;i++) 
                         {
                             await GetYoutubeData(channelList[i].Id);
-                            Console.WriteLine(channelList[i].tag);
+                            Console.WriteLine(channelList[i].Tag);
                             Console.WriteLine("------------------------------------- \n");
                         }
                         break;
@@ -138,7 +145,6 @@ namespace YouViewAPI    //#Duvod proc se pouziva "async" je protoze kod musi poc
                 {
                     //Console.WriteLine($"Přijal jsem úspěšně response: {response}"); //vypíše response
                     string jsonResponse = await response.Content.ReadAsStringAsync();// response dám do json
-
                     Load(jsonResponse);
 
                 }
@@ -149,6 +155,18 @@ namespace YouViewAPI    //#Duvod proc se pouziva "async" je protoze kod musi poc
                 }
             }
         }
+        static public void LoadChanels()
+        {
+            string filePath = (@"E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewAPI\bin\Debug\net8.0\data.json");
+            string jsonString = File.ReadAllText(filePath);
+            channelList = JsonSerializer.Deserialize<List<Channel>>(jsonString);
+            /////////////////////////////////////////////////////////////////TADY
+            foreach (Channel channel in channelList) 
+            {
+                Console.WriteLine(channel.Title);
+            }
+        }
+
         static public void Load(string jsonResponse)
         {
             Console.WriteLine("-------------------------------------------------------------");
@@ -179,7 +197,7 @@ namespace YouViewAPI    //#Duvod proc se pouziva "async" je protoze kod musi poc
         {
             public string Title { get; set; }
             public string Id { get; set; }
-            public string tag { get; set; }
+            public string Tag { get; set; }
         }
     }
 }

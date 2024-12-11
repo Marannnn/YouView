@@ -37,27 +37,32 @@
             ChannelName_textbox = new TextBox();
             label3 = new Label();
             ChannelTag_textbox = new TextBox();
+            reload_button = new Button();
             SuspendLayout();
             // 
             // tags_flowLayoutPanel
             // 
-            tags_flowLayoutPanel.Location = new Point(0, 0);
+            tags_flowLayoutPanel.FlowDirection = FlowDirection.TopDown;
+            tags_flowLayoutPanel.Location = new Point(12, 13);
+            tags_flowLayoutPanel.Margin = new Padding(3, 4, 3, 4);
             tags_flowLayoutPanel.Name = "tags_flowLayoutPanel";
-            tags_flowLayoutPanel.Size = new Size(73, 519);
+            tags_flowLayoutPanel.Size = new Size(87, 665);
             tags_flowLayoutPanel.TabIndex = 0;
             // 
             // videos_flowLayoutPanel
             // 
-            videos_flowLayoutPanel.Location = new Point(101, 12);
+            videos_flowLayoutPanel.Location = new Point(115, 13);
+            videos_flowLayoutPanel.Margin = new Padding(3, 4, 3, 4);
             videos_flowLayoutPanel.Name = "videos_flowLayoutPanel";
-            videos_flowLayoutPanel.Size = new Size(760, 493);
+            videos_flowLayoutPanel.Size = new Size(869, 665);
             videos_flowLayoutPanel.TabIndex = 1;
             // 
             // AddChannel_button
             // 
-            AddChannel_button.Location = new Point(929, 157);
+            AddChannel_button.Location = new Point(1062, 209);
+            AddChannel_button.Margin = new Padding(3, 4, 3, 4);
             AddChannel_button.Name = "AddChannel_button";
-            AddChannel_button.Size = new Size(75, 23);
+            AddChannel_button.Size = new Size(86, 31);
             AddChannel_button.TabIndex = 2;
             AddChannel_button.Text = "Add";
             AddChannel_button.UseVisualStyleBackColor = true;
@@ -65,58 +70,72 @@
             // 
             // ChannelID_textbox
             // 
-            ChannelID_textbox.Location = new Point(976, 21);
+            ChannelID_textbox.Location = new Point(1115, 28);
+            ChannelID_textbox.Margin = new Padding(3, 4, 3, 4);
             ChannelID_textbox.Name = "ChannelID_textbox";
-            ChannelID_textbox.Size = new Size(100, 23);
+            ChannelID_textbox.Size = new Size(114, 27);
             ChannelID_textbox.TabIndex = 3;
             ChannelID_textbox.TextChanged += textBox1_TextChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(867, 24);
+            label1.Location = new Point(991, 32);
             label1.Name = "label1";
-            label1.Size = new Size(65, 15);
+            label1.Size = new Size(81, 20);
             label1.TabIndex = 4;
             label1.Text = "Channel ID";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(867, 73);
+            label2.Location = new Point(991, 97);
             label2.Name = "label2";
-            label2.Size = new Size(86, 15);
+            label2.Size = new Size(106, 20);
             label2.TabIndex = 5;
             label2.Text = "Channel Name";
             // 
             // ChannelName_textbox
             // 
-            ChannelName_textbox.Location = new Point(976, 73);
+            ChannelName_textbox.Location = new Point(1115, 97);
+            ChannelName_textbox.Margin = new Padding(3, 4, 3, 4);
             ChannelName_textbox.Name = "ChannelName_textbox";
-            ChannelName_textbox.Size = new Size(100, 23);
+            ChannelName_textbox.Size = new Size(114, 27);
             ChannelName_textbox.TabIndex = 6;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(867, 116);
+            label3.Location = new Point(991, 155);
             label3.Name = "label3";
-            label3.Size = new Size(72, 15);
+            label3.Size = new Size(89, 20);
             label3.TabIndex = 7;
             label3.Text = "Channel Tag";
             // 
             // ChannelTag_textbox
             // 
-            ChannelTag_textbox.Location = new Point(976, 116);
+            ChannelTag_textbox.Location = new Point(1115, 155);
+            ChannelTag_textbox.Margin = new Padding(3, 4, 3, 4);
             ChannelTag_textbox.Name = "ChannelTag_textbox";
-            ChannelTag_textbox.Size = new Size(100, 23);
+            ChannelTag_textbox.Size = new Size(114, 27);
             ChannelTag_textbox.TabIndex = 8;
+            // 
+            // reload_button
+            // 
+            reload_button.Location = new Point(1062, 649);
+            reload_button.Name = "reload_button";
+            reload_button.Size = new Size(86, 29);
+            reload_button.TabIndex = 9;
+            reload_button.Text = "Reload";
+            reload_button.UseVisualStyleBackColor = true;
+            reload_button.Click += reload_button_Click;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1088, 518);
+            ClientSize = new Size(1243, 691);
+            Controls.Add(reload_button);
             Controls.Add(ChannelTag_textbox);
             Controls.Add(label3);
             Controls.Add(ChannelName_textbox);
@@ -126,6 +145,7 @@
             Controls.Add(AddChannel_button);
             Controls.Add(videos_flowLayoutPanel);
             Controls.Add(tags_flowLayoutPanel);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
@@ -144,5 +164,6 @@
         private TextBox ChannelName_textbox;
         private Label label3;
         private TextBox ChannelTag_textbox;
+        private Button reload_button;
     }
 }

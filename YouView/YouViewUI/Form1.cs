@@ -6,14 +6,15 @@ namespace YouViewUI
     public partial class Form1 : Form
     {
         /// <summary>
-        /// TODO: userControl(video), click on tags Label
-        /// CURR: USER CONTROL = SHOWING VIDEO INFO (NAME, CHANNEL, TAG)
-        /// done: show tags in layoutPanel,  load json channels into list
-        ///     basic GUI, save channels into json file
+        /// TODO: click on tags Label
+        /// CURR: SHOWING VIDEO INFO (NAME, CHANNEL, TAG)
+        /// done: youtubeApi class
+        ///     show tags in layoutPanel,  load json channels into list, basic GUI, save channels into json file
         /// </summary>
         /// 
 
         List<Channel> channelList = new List<Channel>();
+        YoutubeAPI api = new YoutubeAPI();
         public Form1()
         {
             InitializeComponent();
@@ -22,7 +23,6 @@ namespace YouViewUI
         private void Form1_Load(object sender, EventArgs e)
         {
             LoadChannels();
-
             foreach (var channel in channelList) //projdu jednotlive instance v listu channelList
             {
                 //vytvori label pro dany tag
@@ -37,11 +37,25 @@ namespace YouViewUI
 
                 #region Video User Control
                 Video_userControl videoUserControl = new Video_userControl();
-                videoUserControl.
-                videos_flowLayoutPanel.Controls.Add(videoUserControl);
+                //videoUserControl.
+                //videos_flowLayoutPanel.Controls.Add(videoUserControl);
 
                 #endregion
+                api.Find(channel.Id);
+                foreach (var videoTitle in api.resultList)
+                {
+                    MessageBox.Show(videoTitle);
+                    Label l = new Label()
+                    {
+                        Text = videoTitle,
+                        BackColor = Color.Black,
+                    };
+                    videos_flowLayoutPanel.Controls.Add(l);
+                }
+                api.resultList.Clear(); //list se clearne aby bylo misto pro dalsi channel ( 1 resultList jsou vsechan videa jednoho kanalu)
+               
             }
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

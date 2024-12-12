@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marti\\Documents\\programming\\Csharp\\YouView\\YouView\\YouViewAPI\\YouViewCLI.csproj": {}
+    "E:\\Documents\\Programming\\cSharp\\YouView\\YouView\\YouView\\YouViewAPI\\YouViewCLI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marti\\Documents\\programming\\Csharp\\YouView\\YouView\\YouViewAPI\\YouViewCLI.csproj": {
+    "E:\\Documents\\Programming\\cSharp\\YouView\\YouView\\YouView\\YouViewAPI\\YouViewCLI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marti\\Documents\\programming\\Csharp\\YouView\\YouView\\YouViewAPI\\YouViewCLI.csproj",
+        "projectUniqueName": "E:\\Documents\\Programming\\cSharp\\YouView\\YouView\\YouView\\YouViewAPI\\YouViewCLI.csproj",
         "projectName": "YouViewCLI",
-        "projectPath": "C:\\Users\\marti\\Documents\\programming\\Csharp\\YouView\\YouView\\YouViewAPI\\YouViewCLI.csproj",
+        "projectPath": "E:\\Documents\\Programming\\cSharp\\YouView\\YouView\\YouView\\YouViewAPI\\YouViewCLI.csproj",
         "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marti\\Documents\\programming\\Csharp\\YouView\\YouView\\YouViewAPI\\obj\\",
+        "outputPath": "E:\\Documents\\Programming\\cSharp\\YouView\\YouView\\YouView\\YouViewAPI\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\marti\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -65,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

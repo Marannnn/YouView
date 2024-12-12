@@ -33,3 +33,4 @@ C:\Users\marti\Documents\programming\Csharp\YouView\YouView\YouViewUI\obj\Debug\
 C:\Users\marti\Documents\programming\Csharp\YouView\YouView\YouViewUI\obj\Debug\net8.0-windows\YouViewUI.genruntimeconfig.cache
 C:\Users\marti\Documents\programming\Csharp\YouView\YouView\YouViewUI\obj\Debug\net8.0-windows\ref\YouViewUI.dll
 C:\Users\marti\Documents\programming\Csharp\YouView\YouView\YouViewUI\obj\Debug\net8.0-windows\YouViewUI.Video_userControl.resources
+E:\Documents\Programming\cSharp\YouView\YouView\YouView\YouViewUI\obj\Debug\net8.0-windows\YouViewUI.Video_userControl.resources
